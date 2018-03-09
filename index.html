@@ -8,11 +8,11 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+
     <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
-    
+
     <link type="text/css" rel="stylesheet" href="css/style.css">
 
     <title>Buck Dice Game</title>
@@ -28,13 +28,45 @@
                 <h2>The Ace is:</h2>
                 <img src="img/dice-5.png" alt="Dice" class="dice" id="dice-1">
             </div>
-            <div class="row justify-content-center player">
-                
+            <div class="row justify-content-center align-items-center player active">
+                <div class="col-sm">
+                    <div class="player-0-panel">
+                        <p class="player-name" id="name-0">Player 1</p>
+                        <p>Score: <span class="player-score" id="score-0">5</span></p>
+                        <p class="win">WINNER!</p>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="dice-section">
+                        <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
+                        <div class="dice-img">
+                            <img src="img/dice-5.png" alt="Dice" class="dice" id="dice-1">
+                            <img src="img/dice-5.png" alt="Dice" class="dice" id="dice-1">
+                            <img src="img/dice-5.png" alt="Dice" class="dice" id="dice-1">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row justify-content-center player">
-                
+            <div class="row justify-content-center align-items-center player">
+                <div class="col-sm">
+                    <div class="player-1-panel">
+                        <p class="player-name" id="name-1">Player 2</p>
+                        <p>Score: <span class="player-score" id="score-1">5</span></p>
+                        <p class="win">WINNER!</p>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="dice-section">
+                        <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
+                        <div class="dice-img">
+                            <img src="img/dice-5.png" alt="Dice" class="dice" id="dice-1">
+                            <img src="img/dice-5.png" alt="Dice" class="dice" id="dice-1">
+                            <img src="img/dice-5.png" alt="Dice" class="dice" id="dice-1">
+                        </div>
+                    </div>
+                </div>
             </div>
-<!--
+            <!--
             <div class="row justify-content-around">
                 <div class="col-sm">
                     <div class="row">
@@ -47,8 +79,8 @@
                 </div>
             </div>
 -->
-            
-        </div>    
+
+        </div>
     </div>
 
 

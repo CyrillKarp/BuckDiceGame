@@ -20,7 +20,7 @@ img {
 }
 
 .row {
-    margin-top: 20px;
+    margin: 20px 0 0 0;
 }
 
 .game {
@@ -83,4 +83,38 @@ i {
 .player {
     width: 100%;
     height: 35%;
+    text-align: center;
+}
+
+.player p {
+    font-size: 30px;
+}
+
+.player .win {
+    color: #EB4D4D;
+/*    display: none;*/
+}
+
+
+
+
+.active { 
+    background-color: #f7f7f7; 
+}
+.active .player-name { 
+    font-weight: 800; 
+}
+
+.active .player-name::after {
+    content: "\2022";
+    font-size: 47px;
+    position: absolute;
+    color: #EB4D4D;
+    top: -17px;
+    
+    
+}
+
+.dice-img {
+    margin-top: 20px;
 }
