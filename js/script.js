@@ -1,4 +1,4 @@
-let scores, activePlayer, playerNumber, gamePlaying;
+let scores, activePlayer, gamePlaying;
 
 
 init();
@@ -8,7 +8,7 @@ let randomDice = () => Math.floor(Math.random() * 6) + 1;
 
 //2. Display an point (ace)
 let randomPoint = randomDice();
-console.log(randomPoint);
+//console.log(randomPoint);
 let dicePoint = document.getElementById('dice-point');
 dicePoint.src = 'img/dice-' + randomPoint + '.png';
 
@@ -24,27 +24,41 @@ function getPlayersDice() {
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
     //4. Display player's dices
-    function displayPlayersDice() {
-        playerNumber[activePlayer] = getPlayersDice();
-        console.log(playerNumber[activePlayer]);
-        for (let i = 0; i < 3; i++) {
-            document.getElementById('player-' + activePlayer + '-dice-' + i).src = 'img/dice-' + playerNumber[activePlayer][i] + '.png';
-        };
-    };
-    displayPlayersDice();
-    
-    
-    
+    let diceDOM = getPlayersDice();
+    //console.log(diceDOM);
     for (let i = 0; i < 3; i++) {
-        if (randomPoint = playerNumber[activePlayer][i]) {
-            console.log('the numbers are the same');
-        }else {
-            //Next player
-            nextPlayer();
-        }
+        document.getElementById('dice-' + i).src = 'img/dice-' + diceDOM[i] + '.png';
     };
 
+    //5. Check the coincidence of numbers
+    //    for (let i = 0; i < 3; i++) {
+    //        if (randomPoint == diceDOM[i]) {
+    //            scores[activePlayer]++;
+    //            document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+    //
+    //        }else {
+    //            //Next player
+    //           // nextPlayer();
+    //            console.log('her');
+    //        }
+    //    }
+
+    let strDice = '';
+
+    for (let i in diceDOM) {
+        /* если есть совпадения, то помещаем 
+         * индекс (i) элемента в результирующую строку */
+        if (diceDOM[i] == randomPoint) {
+            scores[activePlayer]++;
+            document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+        }else {
+                //Next player
+                nextPlayer();
+                //console.log('her');
+            }
+    }
     
+
 });
 
 
@@ -58,7 +72,8 @@ function nextPlayer() {
     document.querySelector('.player-0-panel').classList.toggle('active');
     document.querySelector('.player-1-panel').classList.toggle('active');
 
-    //document.querySelector('.dice').style.display = 'none';
+    //    document.querySelector('.dice-section-0').style.display = 'none';
+    //    document.querySelector('.dice-section-1').style.display = 'none';
 }
 
 
@@ -68,10 +83,10 @@ document.querySelector('.btn-new').addEventListener('click', init);
 function init() {
     scores = [0, 0];
     activePlayer = 0;
-    playerNumber = [0, 1];
     gamePlaying = true;
-    
-    
+
+    document.getElementById('score-0').textContent = '0';
+    document.getElementById('score-1').textContent = '0';
     document.querySelector('.player-0-panel').classList.remove('active');
     document.querySelector('.player-1-panel').classList.remove('active');
     document.querySelector('.player-0-panel').classList.add('active');
