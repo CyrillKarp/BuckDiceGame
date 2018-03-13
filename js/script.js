@@ -22,23 +22,45 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
         };
 
         //5. Check the coincidence of numbers
-        function isRandomPoint(number) {
-            return number === randomPoint;
-        };
+        let checkDice = diceDOM.filter(function(elem) {
+            if (elem == randomPoint) {
+                return true;
+            }
+        });
 
-        if (diceDOM.some(isRandomPoint)) {
+        //6. Check the coincidence of numbers with each other ("Little Buck")
+        let littleBuck = 0;
+        for (var i = 0; i < diceDOM.length; i++) {
+            for (var j = 0; j < diceDOM.length; j++) {
+                if (diceDOM[i] === diceDOM[j] && j != i) {
+                    littleBuck++;
+                }
+            }
+        }
+
+        //7. Сalculate and display points 
+        if (checkDice.length == 1) {
             scores[activePlayer]++;
             document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
-            if (scores[activePlayer] >= 15) {
-                document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
-                document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
-                //document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
-                gamePlaying = false;
-            }
-
+        } else if (checkDice.length == 2) {
+            scores[activePlayer] = scores[activePlayer] + 2;
+            document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+        } else if (checkDice.length == 3) { //("Big Buck")
+            scores[activePlayer] = scores[activePlayer] + 15;
+            document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+        } else if (littleBuck === 6){ //("Little Buck")
+            scores[activePlayer] = scores[activePlayer] + 5;
+            document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
         } else {
             //Next player
             nextPlayer();
+        }
+        //8. Determine the winner
+        if (scores[activePlayer] >= 15) {
+            document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+            document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+            //document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+            gamePlaying = false;
         }
     }
 });
