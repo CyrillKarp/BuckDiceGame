@@ -2,6 +2,7 @@
 
 This is my game. <br>
 It works on pure javascript (ES6 is added).<br>
+Mobile-friendly adaptive layout with Bootstrap.<br>
 
 Buck Dice is a dice game that is simple, quick, and rather addictive. It is an elimination game – the last player left is the loser. It is often used as a bar game. This game is played by two players. It is played with three dice. 
 

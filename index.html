@@ -14,13 +14,28 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
 
     <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/animate.css">
 
     <title>Buck Dice Game</title>
 </head>
 
 <body>
     <div class="container-fluid">
-        <div class="game">
+        <div class="intro">
+            <div class="intro-cont">
+                <h2>BuckDiceGame</h2>
+                <p>This game is played by two players. It is played with three dice. The game begins with the computer determine the "point" for the game.</p>
+                <p>The game then proceeds with each player, in turn, rolling three three dice, and continuing to roll as long as each roll produces at least one point.</p>
+                <p>Scoring is as follows:
+                    <br>One point for each dice that matches the player's point.
+                    <br>Fifteen points if the player rolls a three-of-a-kind of the point value. This is known as a "Big Buck".
+                    <br>Five points if the player rolls a three-of-a-kind of any non-point value. This is known as a "Little Buck".
+                    <br>As soon as a player makes a roll that scores no points, the turn passes to the next player (making sure to keep a running total of the score for the each player).</p>
+                <p>As soon as a player reaches 15 points or more, he won!</p>
+                <button class="intro-btn-hide" id="intro-btn-hide">start</button>
+            </div>
+        </div>
+        <div class="game animated bounceInDown">
             <div class="row justify-content-center">
                 <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>
             </div>
